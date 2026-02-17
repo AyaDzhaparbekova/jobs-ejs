@@ -1,0 +1,34 @@
+{
+  "name": "jobs-ejs",
+  "version": "1.0.0",
+  "description": "EJS Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AyaDzhaparbekova/jobs-ejs.git"
+  },
+  "author": "Aya D",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AyaDzhaparbekova/jobs-ejs/issues"
+  },
+  "homepage": "https://github.com/AyaDzhaparbekova/jobs-ejs#readme",
+  "devDependencies": {
+    "eslint": "^10.0.0",
+    "nodemon": "^3.1.11",
+    "prettier": "^3.8.1"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.2",
+    "connect-mongodb-session": "^5.0.0",
+    "dotenv": "^17.3.1",
+    "ejs": "^4.0.1",
+    "express": "^4.22.1",
+    "express-async-errors": "^3.1.1",
+    "express-session": "^1.19.0"
+  }
+}
