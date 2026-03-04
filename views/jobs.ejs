@@ -1,0 +1,48 @@
+<%- include("partials/head.ejs") %>
+<%- include("partials/header.ejs") %>
+
+<h2>Jobs List</h2>
+<a href="/jobs/new">
+    <button type="button">Add a Job</button>
+</a>
+
+<table id="jobs-table">
+    <thead>
+        <tr id="jobs-table-header">
+            <th>Company</th>
+            <th>Position</th>
+            <th>Status</th>
+            <th colspan="2"></th>
+        </tr>
+    </thead>
+    <tbody>
+    <% if (jobs && jobs.length > 0) { %>
+        <% jobs.forEach((job) => { %>
+            <tr>
+                <td><%= job.company %></td>
+                <td><%= job.position %></td>
+                <td>
+                    <input type="text" disabled value="<%= job.status === 'interview' ? 'Interview' : job.status === 'declined' ? 'Declined' : 'Pending' %>">
+                </td>
+                <td>
+                    <a href="/jobs/edit/<%= job._id %>">
+                        <button type="button">Edit</button>
+                    </a>
+                </td>
+                <td>
+                    <form action="/jobs/delete/<%= job._id %>" method="POST" style="display:inline;">
+                        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    <% } else { %>
+        <tr>
+            <td colspan="5">No jobs found.</td>
+        </tr>
+    <% } %>
+    </tbody>
+</table>
+
+<%- include("partials/footer.ejs") %>
